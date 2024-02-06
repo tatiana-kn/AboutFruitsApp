@@ -36,10 +36,14 @@ final class DetailViewController: UIViewController {
 // MARK: - UI Setup
 extension DetailViewController {
     private func getFruitDescription() {
-        guard let fruit = fruits.first(where: { $0.name == selectedFruit }) else { return }
-        fruitInfoLabel.text = fruit.description
+        guard let fruit = fruits.first(where: { $0.name == selectedFruit }) else {
+            fruitInfoLabel.text = "No data found"
+            return
         }
+        fruitInfoLabel.text = fruit.description
+    }
 }
+
 
 // MARK: - Networking
 extension DetailViewController {
