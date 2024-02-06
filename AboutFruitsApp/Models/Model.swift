@@ -11,6 +11,16 @@ struct FruitInfo: Decodable {
     let name: String
     let nutritions: Nutritions
     
+    init(fruitDetails: [String: Any]) {
+        name = fruitDetails["name"] as? String ?? ""
+        nutritions = Nutritions(nutritionDetails: fruitDetails["nutritions"] as? [String: Any] ?? [:])
+    }
+        
+    static func getFruits(from value: Any) -> [FruitInfo] {
+        guard let fruitsDetails = value as? [[String: Any]] else { return [] }
+        return fruitsDetails.map { FruitInfo(fruitDetails: $0) }
+    }
+
     var description: String {
         """
     Name: \(name)
@@ -29,6 +39,14 @@ struct Nutritions: Decodable {
     let sugar: Double
     let carbohydrates: Double
     let protein: Double
+    
+    init(nutritionDetails: [String: Any]) {
+        calories = nutritionDetails["calories"] as? Int ?? 0
+        fat = nutritionDetails["fat"] as? Double ?? 0
+        sugar = nutritionDetails["sugar"] as? Double ?? 0
+        carbohydrates = nutritionDetails["carbohydrates"] as? Double ?? 0
+        protein = nutritionDetails["protein"] as? Double ?? 0
+    }
 }
 
 typealias Fruit = [FruitInfo]

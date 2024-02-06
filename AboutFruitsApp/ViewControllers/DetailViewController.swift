@@ -36,23 +36,32 @@ final class DetailViewController: UIViewController {
 // MARK: - UI Setup
 extension DetailViewController {
     private func getFruitDescription() {
-        guard let fruit = fruits.first(where: { $0.name == selectedFruit }) else { return }
-        fruitInfoLabel.text = fruit.description
+        guard let fruit = fruits.first(where: { $0.name == selectedFruit }) else {
+            fruitInfoLabel.text = "No data found"
+            return
         }
+        fruitInfoLabel.text = fruit.description
+    }
+    
+    private func showAlert(withTitle title: String, andMessage message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }
 
 // MARK: - Networking
 extension DetailViewController {
     private func fetchFruits() {
-        networkManager.fetchFruits(from: FruitsAPI.baseURL.url) { [weak self] result in
-            guard let self else { return }
+        networkManager.fetchFruits(from: FruitsAPI.baseURL.url) { [unowned self] result in
             switch result {
             case .success(let fruits):
                 self.fruits = fruits
                 getFruitDescription()
                 activityIndicator.stopAnimating()
             case .failure(let error):
-                print(error)
+                showAlert(withTitle: "Oops!", andMessage: error.localizedDescription)
             }
         }
     }

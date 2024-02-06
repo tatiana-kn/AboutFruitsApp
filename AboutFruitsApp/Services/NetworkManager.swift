@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Alamofire
 enum NetworkError: Error {
     case noData
     case decodingError
@@ -17,21 +17,18 @@ final class NetworkManager: Error {
     
     private init() {}
     
-    func fetchFruits(from url: URL, completion: @escaping(Result<[FruitInfo], NetworkError>) -> Void) {
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data else {
-                print(error ?? "No error description")
-                return
-            }
-            do {
-                let fruits = try JSONDecoder().decode([FruitInfo].self, from: data)
-                DispatchQueue.main.async {
+    func fetchFruits(from url: URL, completion: @escaping(Result<[FruitInfo], AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponce in
+                switch dataResponce.result {
+                case .success(let value):
+                    let fruits = FruitInfo.getFruits(from: value)
                     completion(.success(fruits))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
-            } catch {
-                completion(.failure(.decodingError))
             }
-        }.resume()
     }
 }
 
