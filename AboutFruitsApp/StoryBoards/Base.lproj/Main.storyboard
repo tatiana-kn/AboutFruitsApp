@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KY2-NO-3PQ">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--AboutFruits-->
+        <scene sceneID="Iuz-mE-Jhn">
+            <objects>
+                <collectionViewController id="fXg-bW-Mmc" customClass="MainViewController" customModule="AboutFruitsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lVb-z3-lYz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="40" minimumInteritemSpacing="40" id="zQS-cq-rcQ">
+                            <size key="itemSize" width="60" height="60"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="40" maxX="0.0" maxY="40"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="userAction" id="6FF-aQ-ITE" customClass="UserActionCell" customModule="AboutFruitsApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="40" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mNw-ve-q55">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0h-Da-6R3">
+                                            <rect key="frame" x="5" y="1" width="50" height="58.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="G0h-Da-6R3" firstAttribute="centerX" secondItem="mNw-ve-q55" secondAttribute="centerX" id="HgS-c2-AD5"/>
+                                        <constraint firstItem="G0h-Da-6R3" firstAttribute="centerY" secondItem="mNw-ve-q55" secondAttribute="centerY" id="Hy5-wm-jWI"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="userActionLabel" destination="G0h-Da-6R3" id="c1p-AB-tev"/>
+                                    <segue destination="mGd-g1-0Rc" kind="show" identifier="showDetail" id="erU-MU-uN7"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="fXg-bW-Mmc" id="ivB-9h-Qvv"/>
+                            <outlet property="delegate" destination="fXg-bW-Mmc" id="464-VB-2Eu"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="AboutFruits" id="Qzu-KQ-mmO"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dRf-0B-0g0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2478.75" y="1.056338028169014"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="f80-0t-MSG">
+            <objects>
+                <viewController id="mGd-g1-0Rc" customClass="DetailViewController" customModule="AboutFruitsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vwX-Vw-mia">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👀" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMP-a7-RWb">
+                                <rect key="frame" x="111.5" y="164" width="97" height="107.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aND-iN-Gdh">
+                                <rect key="frame" x="160" y="321.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="PGo-63-Pa1">
+                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="157-Jn-W50"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PGo-63-Pa1" firstAttribute="centerX" secondItem="vwX-Vw-mia" secondAttribute="centerX" id="Zds-sg-MFB"/>
+                            <constraint firstItem="aND-iN-Gdh" firstAttribute="centerX" secondItem="vwX-Vw-mia" secondAttribute="centerX" id="gFe-tC-a5P"/>
+                            <constraint firstItem="oMP-a7-RWb" firstAttribute="centerX" secondItem="vwX-Vw-mia" secondAttribute="centerX" id="pK0-95-siZ"/>
+                            <constraint firstItem="PGo-63-Pa1" firstAttribute="centerY" secondItem="vwX-Vw-mia" secondAttribute="centerY" id="pOG-vc-6QV"/>
+                            <constraint firstItem="aND-iN-Gdh" firstAttribute="top" secondItem="oMP-a7-RWb" secondAttribute="bottom" constant="50" id="q8t-Ee-cTu"/>
+                            <constraint firstItem="oMP-a7-RWb" firstAttribute="top" secondItem="157-Jn-W50" secondAttribute="top" constant="100" id="zd4-xW-xmq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6me-DR-9L7"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="PGo-63-Pa1" id="jRc-K4-Pnn"/>
+                        <outlet property="fruitImageLabel" destination="oMP-a7-RWb" id="BJh-i0-oaX"/>
+                        <outlet property="fruitInfoLabel" destination="aND-iN-Gdh" id="kRD-6s-9pZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UEh-gY-gIN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3236" y="1"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IQz-gj-qon">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KY2-NO-3PQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="50n-Gm-laU">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fXg-bW-Mmc" kind="relationship" relationship="rootViewController" id="kTf-wF-paf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VSV-Fn-Sir" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742" y="1"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
