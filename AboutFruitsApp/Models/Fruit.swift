@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias Fruit = [FruitInfo]
+
 struct FruitInfo: Decodable {
     let name: String
     let nutritions: Nutritions
@@ -49,7 +51,7 @@ struct Nutritions: Decodable {
     }
 }
 
-typealias Fruit = [FruitInfo]
+
 
 enum FruitsAPI {
     case baseURL
@@ -62,26 +64,30 @@ enum FruitsAPI {
     }
 }
 
-let fruitImages = [
-    "Apple": "🍎",
-    "GreenApple": "🍏",
-    "Orange": "🍊",
-    "Kiwifruit": "🥝",
-    "Blueberry": "🫐",
-    "Lemon": "🍋",
-    "Melon": "🍈",
-    "Watermelon": "🍉",
-    "Grape": "🍇",
-    "Pear": "🍐",
-    "Strawberry": "🍓",
-    "Tomato": "🍅",
-    "Pineapple": "🍍",
-    "Mango": "🥭",
-    "Banana": "🍌",
-    "Avocado": "🥑",
-    "Cherry": "🍒",
-    "Peach": "🍑"
-]
-
-
+struct FruitImage {
+    let images: [String: String]
+    
+    static func getFruitImages() -> FruitImage {
+        FruitImage(images: [
+            "Apple": "🍎",
+            "GreenApple": "🍏",
+            "Orange": "🍊",
+            "Kiwifruit": "🥝",
+            "Blueberry": "🫐",
+            "Lemon": "🍋",
+            "Melon": "🍈",
+            "Watermelon": "🍉",
+            "Grape": "🍇",
+            "Pear": "🍐",
+            "Strawberry": "🍓",
+            "Tomato": "🍅",
+            "Pineapple": "🍍",
+            "Mango": "🥭",
+            "Banana": "🍌",
+            "Avocado": "🥑",
+            "Cherry": "🍒",
+            "Peach": "🍑"
+        ])
+    }
+}
 

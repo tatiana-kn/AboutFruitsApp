@@ -13,7 +13,7 @@
 		14066D8A2B6BF9E400CFD485 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14066D882B6BF9E400CFD485 /* Main.storyboard */; };
 		14066D8C2B6BF9E700CFD485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14066D8B2B6BF9E700CFD485 /* Assets.xcassets */; };
 		14066D8F2B6BF9E700CFD485 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14066D8D2B6BF9E700CFD485 /* LaunchScreen.storyboard */; };
-		14066D972B6BFA0100CFD485 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14066D962B6BFA0100CFD485 /* Model.swift */; };
+		14066D972B6BFA0100CFD485 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14066D962B6BFA0100CFD485 /* Fruit.swift */; };
 		14066D992B6CCE7500CFD485 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14066D982B6CCE7500CFD485 /* MainViewController.swift */; };
 		14066D9B2B6CD86B00CFD485 /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14066D9A2B6CD86B00CFD485 /* UserActionCell.swift */; };
 		14066D9E2B6E303200CFD485 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14066D9D2B6E303200CFD485 /* NetworkManager.swift */; };
@@ -29,7 +29,7 @@
 		14066D8B2B6BF9E700CFD485 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14066D8E2B6BF9E700CFD485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14066D902B6BF9E700CFD485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14066D962B6BFA0100CFD485 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		14066D962B6BFA0100CFD485 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 		14066D982B6CCE7500CFD485 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		14066D9A2B6CD86B00CFD485 /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		14066D9D2B6E303200CFD485 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		14066D9F2B72174400CFD485 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				14066D962B6BFA0100CFD485 /* Model.swift */,
+				14066D962B6BFA0100CFD485 /* Fruit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,7 +211,7 @@
 				14066D9B2B6CD86B00CFD485 /* UserActionCell.swift in Sources */,
 				14066D9E2B6E303200CFD485 /* NetworkManager.swift in Sources */,
 				14066D852B6BF9E400CFD485 /* SceneDelegate.swift in Sources */,
-				14066D972B6BFA0100CFD485 /* Model.swift in Sources */,
+				14066D972B6BFA0100CFD485 /* Fruit.swift in Sources */,
 				14066D992B6CCE7500CFD485 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
