@@ -10,10 +10,16 @@ import Foundation
 struct FruitInfo: Decodable {
     let name: String
     let nutritions: Nutritions
+    let family: String
+    let order: String
+    let genus: String
     
     var description: String {
         """
     Name: \(name)
+    Family: \(family)
+    Order: \(order)
+    Genus: \(genus)
     Calories: \(nutritions.calories)
     Fat: \(nutritions.fat)
     Sugar: \(nutritions.sugar)

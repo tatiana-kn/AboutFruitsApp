@@ -23,7 +23,9 @@ final class MainViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userAction", for: indexPath)
         guard let cell = cell as? UserActionCell else { return UICollectionViewCell() }
         let fruitImage = Array(fruitImages.images.values)[indexPath.item]
+        let fruitName = Array(fruitImages.images.keys)[indexPath.item]
         cell.userActionLabel.text = fruitImage
+        cell.userActionNameLabel.text = fruitName
         
         return cell
     }
@@ -47,7 +49,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        CGSize(width: 80, height: 90)
+        CGSize(width: 85, height: 90)
     }
     
     func collectionView(
