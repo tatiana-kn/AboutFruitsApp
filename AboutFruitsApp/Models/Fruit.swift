@@ -15,11 +15,6 @@ struct FruitInfo: Decodable {
         name = fruitDetails["name"] as? String ?? ""
         nutritions = Nutritions(nutritionDetails: fruitDetails["nutritions"] as? [String: Any] ?? [:])
     }
-        
-    static func getFruits(from value: Any) -> [FruitInfo] {
-        guard let fruitsDetails = value as? [[String: Any]] else { return [] }
-        return fruitsDetails.map { FruitInfo(fruitDetails: $0) }
-    }
 
     var description: String {
         """
@@ -30,6 +25,11 @@ struct FruitInfo: Decodable {
     Carbohydrates: \(nutritions.carbohydrates)
     Protein: \(nutritions.protein)
     """
+    }
+    
+    static func getFruits(from value: Any) -> [FruitInfo] {
+        guard let fruitsDetails = value as? [[String: Any]] else { return [] }
+        return fruitsDetails.map { FruitInfo(fruitDetails: $0) }
     }
 }
 
