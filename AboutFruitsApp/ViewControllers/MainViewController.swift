@@ -8,11 +8,12 @@
 import UIKit
 
 final class MainViewController: UICollectionViewController {
+    private let fruitImages = FruitImage.getFruitImages()
     
     // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        fruitImages.count
+        fruitImages.images.count
     }
     
     override func collectionView(
@@ -21,7 +22,7 @@ final class MainViewController: UICollectionViewController {
     ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userAction", for: indexPath)
         guard let cell = cell as? UserActionCell else { return UICollectionViewCell() }
-        let fruitImage = Array(fruitImages.values)[indexPath.item]
+        let fruitImage = Array(fruitImages.images.values)[indexPath.item]
         cell.userActionLabel.text = fruitImage
         
         return cell
@@ -33,7 +34,7 @@ final class MainViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
         guard let detailVC = segue.destination as? DetailViewController else { return }
-        let selectedFruit = Array(fruitImages.keys)[indexPath.item]
+        let selectedFruit = Array(fruitImages.images.keys)[indexPath.item]
         
         detailVC.selectedFruit = selectedFruit
     }

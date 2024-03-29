@@ -8,6 +8,7 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
+    private let fruitImages = FruitImage.getFruitImages()
     
     // MARK: - IBOutlets
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -25,7 +26,7 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fruitImageLabel.text = fruitImages[selectedFruit ?? ""]
+        fruitImageLabel.text = fruitImages.images[selectedFruit ?? ""]
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         
