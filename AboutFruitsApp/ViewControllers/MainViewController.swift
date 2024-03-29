@@ -8,7 +8,7 @@
 import UIKit
 
 final class MainViewController: UICollectionViewController {
-    let fruitImages = FruitImage.getFruitImages()
+    private let fruitImages = FruitImage.getFruitImages()
     
     // MARK: UICollectionViewDataSource
     

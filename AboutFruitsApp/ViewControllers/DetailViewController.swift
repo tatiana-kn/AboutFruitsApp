@@ -8,7 +8,7 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    let fruitImages = FruitImage.getFruitImages()
+    private let fruitImages = FruitImage.getFruitImages()
     
     // MARK: - IBOutlets
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
