@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FruitInfo: Decodable {
+struct Fruit: Codable {
     let name: String
     let nutritions: Nutritions
     let family: String
@@ -29,25 +29,12 @@ struct FruitInfo: Decodable {
     }
 }
 
-struct Nutritions: Decodable {
+struct Nutritions: Codable {
     let calories: Int
     let fat: Double
     let sugar: Double
     let carbohydrates: Double
     let protein: Double
-}
-
-typealias Fruit = [FruitInfo]
-
-enum FruitsAPI {
-    case baseURL
-    
-    var url: URL {
-        switch self {
-        case .baseURL:
-            return URL(string: "https://www.fruityvice.com/api/fruit/all")!
-        }
-    }
 }
 
 struct FruitImage {

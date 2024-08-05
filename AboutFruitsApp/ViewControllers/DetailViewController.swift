@@ -8,58 +8,81 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    private let fruitImages = FruitImage.getFruitImages()
     
-    // MARK: - IBOutlets
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var fruitImageLabel: UILabel!
-    @IBOutlet var fruitInfoLabel: UILabel!
+    private var fruit: Fruit?
     
-    // MARK: - Public properties
-    var selectedFruit: String?
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 20
+        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        stackView.isLayoutMarginsRelativeArrangement = true
+        return stackView
+    }()
     
-    //MARK: Private properties
-    private var fruits: Fruit = []
-    private let networkManager = NetworkManager.shared
-
-    // MARK: - View Life Cycle
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "default")
+        imageView.contentMode = .scaleAspectFill
+        let width = UIScreen.main.bounds.width
+        imageView.heightAnchor.constraint(equalToConstant: 0.8 * width).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 0.8 * width).isActive = true
+        return imageView
+    }()
+    
+//    private var imageLabel: UILabel = {
+//        let imageLabel = UILabel()
+//        imageLabel.text = "Image"
+//        return imageLabel
+//    }()
+    
+    private var descriptionLabel: UILabel = {
+        let descriptionLabel = UILabel()
+        descriptionLabel.text = "Fruit"
+        descriptionLabel.numberOfLines = 0
+        return descriptionLabel
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fruitImageLabel.text = fruitImages.images[selectedFruit ?? ""]
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
+        setupViews()
+        setupConstraints()
+
+    }
+    
+    func update(_ fruit: Fruit) {
+        self.fruit = fruit
+        imageView.image = UIImage(named: fruit.name)
+        descriptionLabel.text = fruit.description
+    }
+}
+
+extension DetailViewController {
+    private func setupViews() {
+        view.addSubview(stackView)
+        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(descriptionLabel)
+        view.backgroundColor = .white
+    }
+    
+    private func setupConstraints() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        fetchFruits()
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
+        ])
+        
+        
+        
     }
 }
 
-// MARK: - UI Setup
-extension DetailViewController {
-    private func getFruitDescription() {
-        guard let fruit = fruits.first(where: { $0.name == selectedFruit }) else {
-            fruitInfoLabel.text = "No data found"
-            return
-        }
-        fruitInfoLabel.text = fruit.description
-    }
-}
-
-
-// MARK: - Networking
-extension DetailViewController {
-    private func fetchFruits() {
-        networkManager.fetchFruits(from: FruitsAPI.baseURL.url) { [weak self] result in
-            guard let self else { return }
-            switch result {
-            case .success(let fruits):
-                self.fruits = fruits
-                getFruitDescription()
-                activityIndicator.stopAnimating()
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
+#Preview(traits: .portrait) {
+    DetailViewController()
 }
 

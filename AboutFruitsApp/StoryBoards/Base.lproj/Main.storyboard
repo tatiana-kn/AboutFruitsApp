@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KY2-NO-3PQ">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -12,7 +12,7 @@
         <!--AboutFruits-->
         <scene sceneID="Iuz-mE-Jhn">
             <objects>
-                <collectionViewController id="fXg-bW-Mmc" customClass="MainViewController" customModule="AboutFruitsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="fXg-bW-Mmc" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lVb-z3-lYz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="2478.75" y="1.056338028169014"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--View Controller-->
         <scene sceneID="f80-0t-MSG">
             <objects>
-                <viewController id="mGd-g1-0Rc" customClass="DetailViewController" customModule="AboutFruitsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mGd-g1-0Rc" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vwX-Vw-mia">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
