@@ -27,7 +27,8 @@ struct FruitsLoader: IFruitsLoader {
         }
         return url
     }
-    
+ 
+// MARK: - Networking
     func loadFruits(handler: @escaping (Result<[Fruit], Error>) -> Void) {
         networkClient.fetch(url: fruitsURL) { result in
             switch result {

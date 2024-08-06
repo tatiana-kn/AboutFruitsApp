@@ -31,16 +31,12 @@ final class DetailViewController: UIViewController {
         return imageView
     }()
     
-//    private var imageLabel: UILabel = {
-//        let imageLabel = UILabel()
-//        imageLabel.text = "Image"
-//        return imageLabel
-//    }()
-    
     private var descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
         descriptionLabel.text = "Fruit"
         descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = .systemFont(ofSize: 22)
+        descriptionLabel.textColor = .darkGray
         return descriptionLabel
     }()
     
@@ -49,16 +45,16 @@ final class DetailViewController: UIViewController {
         
         setupViews()
         setupConstraints()
-
     }
     
     func update(_ fruit: Fruit) {
         self.fruit = fruit
-        imageView.image = UIImage(named: fruit.name)
+        imageView.image = UIImage(named: fruit.name) ?? UIImage(named: "default")
         descriptionLabel.text = fruit.description
     }
 }
 
+//MARK: - Layout
 extension DetailViewController {
     private func setupViews() {
         view.addSubview(stackView)
@@ -70,15 +66,11 @@ extension DetailViewController {
     private func setupConstraints() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
-//        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
         ])
-        
-        
-        
     }
 }
 

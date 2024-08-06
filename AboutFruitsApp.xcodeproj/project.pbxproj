@@ -68,12 +68,12 @@
 		14066D812B6BF9E400CFD485 /* AboutFruitsApp */ = {
 			isa = PBXGroup;
 			children = (
+				14066DA02B72176600CFD485 /* Screens */,
 				14066D9F2B72174400CFD485 /* Models */,
-				14066DA02B72176600CFD485 /* ViewControllers */,
 				14066D9C2B6E300F00CFD485 /* Services */,
-				14066DA12B72178E00CFD485 /* StoryBoards */,
 				14066DA32B72188E00CFD485 /* App */,
-				14066D8B2B6BF9E700CFD485 /* Assets.xcassets */,
+				14B3D90C2C621CF40054CDFA /* Resources */,
+				14066DA12B72178E00CFD485 /* StoryBoards */,
 			);
 			path = AboutFruitsApp;
 			sourceTree = "<group>";
@@ -95,15 +95,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		14066DA02B72176600CFD485 /* ViewControllers */ = {
+		14066DA02B72176600CFD485 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				14066D982B6CCE7500CFD485 /* MainViewController.swift */,
-				14B3D90A2C611CAE0054CDFA /* MainConfigurator.swift */,
-				14066D862B6BF9E400CFD485 /* DetailViewController.swift */,
-				14B3D9032C5FE80D0054CDFA /* Cells */,
+				14B3D90D2C621F170054CDFA /* MainScreen */,
+				14B3D90E2C621F310054CDFA /* DetailScreen */,
 			);
-			path = ViewControllers;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		14066DA12B72178E00CFD485 /* StoryBoards */ = {
@@ -118,7 +116,6 @@
 		14066DA32B72188E00CFD485 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				14066D902B6BF9E700CFD485 /* Info.plist */,
 				14066D822B6BF9E400CFD485 /* AppDelegate.swift */,
 				14066D842B6BF9E400CFD485 /* SceneDelegate.swift */,
 			);
@@ -131,6 +128,33 @@
 				14B3D9042C5FE8210054CDFA /* FruitCollectionCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		14B3D90C2C621CF40054CDFA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				14066D902B6BF9E700CFD485 /* Info.plist */,
+				14066D8B2B6BF9E700CFD485 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		14B3D90D2C621F170054CDFA /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				14B3D90A2C611CAE0054CDFA /* MainConfigurator.swift */,
+				14066D982B6CCE7500CFD485 /* MainViewController.swift */,
+				14B3D9032C5FE80D0054CDFA /* Cells */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		14B3D90E2C621F310054CDFA /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				14066D862B6BF9E400CFD485 /* DetailViewController.swift */,
+			);
+			path = DetailScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,7 +389,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AboutFruitsApp/App/Info.plist;
+				INFOPLIST_FILE = AboutFruitsApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -396,7 +420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AboutFruitsApp/App/Info.plist;
+				INFOPLIST_FILE = AboutFruitsApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

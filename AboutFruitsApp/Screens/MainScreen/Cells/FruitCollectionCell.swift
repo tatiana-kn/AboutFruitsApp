@@ -9,27 +9,22 @@ import UIKit
 
 final class FruitCollectionCell: UICollectionViewCell {
     static let reuseID = "FruitCollectionCell"
-    private let fruitImages = FruitImage.getFruitImages()
-    
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "default")
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
-    
-//    private let imageLabel: UILabel = {
-//        let imageLabel = UILabel()
-//        imageLabel.text = "Image"
-//        return imageLabel
-//    }()
     
     private let nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.text = "Fruit"
         nameLabel.numberOfLines = 0
         nameLabel.textAlignment = .center
+        nameLabel.font = .systemFont(ofSize: 18)
+        nameLabel.textColor = .darkGray
         return nameLabel
     }()
     
@@ -46,12 +41,11 @@ final class FruitCollectionCell: UICollectionViewCell {
     
     func update(_ fruit: Fruit) {
         nameLabel.text = fruit.name
-        imageView.image = UIImage(named: fruit.name)
-//        imageLabel.text = fruitImages.images[fruit.name]
+        imageView.image = UIImage(named: fruit.name) ?? UIImage(named: "default")
     }
-    
 }
 
+//MARK: - Layout
 extension FruitCollectionCell {
     private func setupViews() {
         contentView.addSubview(nameLabel)
@@ -66,7 +60,8 @@ extension FruitCollectionCell {
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -20)
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 80)
         ])
         
         NSLayoutConstraint.activate([

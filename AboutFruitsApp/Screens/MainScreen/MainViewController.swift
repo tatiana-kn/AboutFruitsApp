@@ -8,9 +8,8 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    private let fruitImages = FruitImage.getFruitImages()
     var fruitsLoader = FruitsLoader()
-    var fruits: [Fruit] = []
+    private var fruits: [Fruit] = []
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -25,7 +24,7 @@ final class MainViewController: UIViewController {
         layout.minimumLineSpacing = padding
         layout.minimumInteritemSpacing = padding
         layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        layout.itemSize = CGSize(width: cellSize, height: cellSize)
+        layout.itemSize = CGSize(width: cellSize, height: cellSize * 1.25)
         
         collectionView.backgroundColor = .white
         
@@ -45,23 +44,27 @@ final class MainViewController: UIViewController {
     }
 }
 
+//MARK: - Layout
 extension MainViewController {
     private func setupViews() {
         view.addSubview(collectionView)
+        view.backgroundColor = .white
     }
     
     private func setupConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        let safeArea = view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            collectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
     }
 }
 
+//MARK: - UITableViewDataSource
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         fruits.count
@@ -71,7 +74,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FruitCollectionCell.reuseID, for: indexPath) as? FruitCollectionCell else {
             return UICollectionViewCell()
         }
-        cell.backgroundColor = .white
         cell.update(fruits[indexPath.row])
         return cell
     }
@@ -84,6 +86,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 }
 
+// MARK: - Networking
 extension MainViewController {
     private func loadFruits() {
         fruitsLoader.loadFruits { [weak self] result in

@@ -37,32 +37,6 @@ struct Nutritions: Codable {
     let protein: Double
 }
 
-struct FruitImage {
-    let images: [String: String]
-    
-    static func getFruitImages() -> FruitImage {
-        FruitImage(images: [
-            "Apple": "🍎",
-            "GreenApple": "🍏",
-            "Orange": "🍊",
-            "Kiwifruit": "🥝",
-            "Blueberry": "🫐",
-            "Lemon": "🍋",
-            "Melon": "🍈",
-            "Watermelon": "🍉",
-            "Grape": "🍇",
-            "Pear": "🍐",
-            "Strawberry": "🍓",
-            "Tomato": "🍅",
-            "Pineapple": "🍍",
-            "Mango": "🥭",
-            "Banana": "🍌",
-            "Avocado": "🥑",
-            "Cherry": "🍒",
-            "Peach": "🍑"
-        ])
-    }
-}
 
 
 
